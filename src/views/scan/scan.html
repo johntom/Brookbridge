@@ -9,6 +9,7 @@
 				position: relative;
 				width: 660px;
 			}
+
 			/* .k-autocomplete.k-header {
 				width: 350px;
 			} */
@@ -62,20 +63,27 @@
 		 k-on-change.delegate="rowSelected($event.detail)" k-column-menu.bind="true" k-pageable.bind="true" k-on-edit.delegate="onEdit($event.detail)"
 		 k-editable="popup" k-selectable="[row]" k-toolbar.bind="['excel']" k-excel.bind="{ fileName: 'mailflow.xlsx' }">
 			<ak-col k-width="120px" k-title="command" click.delegate='onEdit($event)' k-command.bind="['edit']" k-width="650px"></ak-col>
-			<!-- <ak-col k-title="Type" k-width="120px" k-field="type" k-template="<button click.delegate='details($event)' class='k-button'>#=type#</button>">			</ak-col> -->
+			<ak-col k-title="BCSNumber" k-field="BCSNumber" k-width="120px" k-filterable.bind="{cell: { operator: 'startswith' }}"></ak-col>
 
-			<ak-col k-title="Type" k-width.bind="200" k-field="type" k-editor.bind="typeDropDownEditor" k-template.bind="typeTemplate"></ak-col>
-			<!-- <ak-col k-field="id" k-title="id" k-filterable.bind="true" k-title="Edit" k-width.bind="380"></ak-col> -->
-			<ak-col k-field="Issue" k-title="Issue" k-filterable.bind="true" k-title="Edit" k-editor.bind="company_memoEditor" k-width.bind="380"></ak-col>
-			<ak-col k-field="createdAt" k-width="140px" k-format="{0:MM/dd/yyyy}"></ak-col>
-			<ak-col k-field="updatedAt" k-width="140px" k-format="{0:MM/dd/yyyy}"></ak-col>
-			<!-- <ak-col k-title="Status" k-width="100px" k-field="status"></ak-col> -->
-			<!-- <ak-col k-title="Status" k-width="100px" k-field="status" k-editor.bind="statusDropDownEditor"></ak-col>-->
-			<ak-col k-title="Status" k-width="160px" k-field="status" k-editor.bind="statusDropDownEditor" k-template.bind="statusTemplate"></ak-col>
-			<ak-col k-title="ResultStatus" k-width="160px" k-field="statusresults" k-editor.bind="statusresultsDropDownEditor" k-template.bind="statusresultsTemplate"></ak-col>
-			<ak-col k-title="Completed" type="" k-width="100px" k-field="isComplete"></ak-col>
-			<ak-col k-field="DeveloperNotes" k-title="Developer Notes" k-filterable.bind="true" k-title="Edit" k-editor.bind="company_memoEditor"
-			 k-width.bind="280"></ak-col>
+			<ak-col k-title="doctype" k-width="120px" k-field="doctype" k-filterable.bind="{cell: { operator: 'startswith' }}">
+			</ak-col>
+			<ak-col k-title="fileName" k-width="140px" k-field="fileName" k-filterable.bind="{cell: { operator: 'startswith' }}">
+			</ak-col>
+			<ak-col k-field="filename" k-filterable.bind="true" k-title="`   Open" k-width.bind="160" k-template="<button click.delegate='details($event)' class='k-button'>#=BCSNumber#</button>">
+			</ak-col>
+
+			<!-- <ak-col k-title="download" k-editor.bind="nonEditor" k-width="120px" k-field="filename" k-filterable.bind="false" k-template="http://jif.bergenrisk.com:8080/api/v1/downloadonepdf/#=template#/#=filename#.pdf">
+            </ak-col> -->
+			<ak-col k-title="InvNumber" k-width="100px" k-field="InvNumber" k-filterable.bind="{cell: { operator: 'startswith' }}">
+			</ak-col>
+			<ak-col k-title="DOBNum" k-width="100px" k-field="DOBNum" k-filterable.bind="{cell: { operator: 'startswith' }}">
+			</ak-col>
+			<ak-col k-title="CheckNum" k-width="100px" k-field="CheckNum" k-filterable.bind="{cell: { operator: 'startswith' }}">
+			</ak-col>
+			<ak-col k-title="ProjectStatus" k-width="100px" k-field="ProjectStatus" k-filterable.bind="{cell: { operator: 'startswith' }}">
+			</ak-col>
+			<ak-col k-title="Time" k-width="100px" k-field="Time" k-filterable.bind="{cell: { operator: 'startswith' }}">
+			</ak-col>
 			<br>
 		</ak-grid>
 		<div class="flex-row-none section-footer">
@@ -84,13 +92,3 @@
 	</section>
 
 </template>
-
-<!-- <ak-col k-field="assignto" k-title="assignto" k-width="180px" k-editor.bind="staffDropDownEditor"
-                                    k-filterable.bind="false" k-groupable.bind="false" k-template.bind="staffTemplate"></ak-col>
-   -->
-<!-- <ak-col k-width="120px" k-title="command" click.delegate='onEdit($event)'
-                                    k-command.bind="['edit']" k-title="&nbsp;" k-locked.bind="true" k-lockable.bind="false"></ak-col>
-  -->
-<!-- <ak-col k-field="id" k-title="id" k-filterable.bind="true" k-title="Edit" k-width.bind="380"></ak-col> -->
-<!-- <ak-col k-title="Type" k-width="120px" k-field="type" k-template="<button click.delegate='details2($event)' class='k-button'>#=type#</button>">
-			</ak-col> -->

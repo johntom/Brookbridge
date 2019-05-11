@@ -57,8 +57,11 @@ export class App {
       { route: 'todo/:id', name: 'todo-search-results', moduleId: PLATFORM.moduleName('./views/todo/search-results'), title: 'Search Results', activationStrategy: 'replace' },
       { route: 'todo/data/:id', name: 'todo-data-form', moduleId: PLATFORM.moduleName('./views/todo/data-form'), title: 'Data Form', activationStrategy: 'replace' },
       { route: 'todo', name: 'todo', moduleId: PLATFORM.moduleName('./views/todo/todo'), nav: true, title: 'Todo' },
-       { route: 'scan', name: 'scan', moduleId: PLATFORM.moduleName('./views/scan'), title: 'scan Form', activationStrategy: 'replace' },
-      { route: 'scanprocess', name: 'todo', moduleId: PLATFORM.moduleName('./views/scanprocess'), nav: true, title: 'Scan process' },
+      
+      { route: 'scan', name: 'scan', moduleId: PLATFORM.moduleName('./views/scan/scan'), nav: true, title: 'scan' },
+      
+      //  { route: 'scan', name: 'scan', moduleId: PLATFORM.moduleName('./views/scan/scan'), title: 'scan Form', activationStrategy: 'replace' },
+      // { route: 'scanprocess', name: 'scanprocess', moduleId: PLATFORM.moduleName('./views/scanprocess/index'), nav: true, title: 'Scan process' },
     
      
      

@@ -1,79 +1,30 @@
 //https://gist.run/?id=3c1a0aab9ef1a0aaf037518b5d61c803
-// import { version } from 'aurelia-kendoui-bridge';
-// import $ from 'jquery';
-// import moment from 'moment';
-// import { ListViewModel } from '../list-view-model';
-// import { AuthServiceGTZ, ServiceAPI } from '../services';
-// import { AuthServiceGTZ } from '../services';
-// import { AuthServiceGTZ, ServiceAPI } from '../services';
-// import { api } from '../Utils/api'
 
-
-// import superJson from 'super-json';
-// import { activationStrategy } from 'aurelia-router';
-// import lodash from 'lodash';
 import {  bindable} from 'aurelia-framework';
-import {  AuthServiceGTZ} from '../services'
+// import {  AuthServiceGTZ} from '../services'
 import {  inject} from 'aurelia-dependency-injection';
 import {  AppRouter} from 'aurelia-router';
 import {  ApiService} from 'utils/servicesApi';
-import {  MdToastService,  MdModal} from "aurelia-materialize-bridge";
-@inject(MdToastService, AppRouter, AuthServiceGTZ, ApiService)
+// import {  MdToastService,  MdModal} from "aurelia-materialize-bridge";
+// @inject(MdToastService, AppRouter, AuthServiceGTZ, ApiService)
+@inject( AppRouter,  ApiService)
+
 // export class Aboutktemp extends ListViewModel {
 
 // http://demos.telerik.com/kendo-ui/grid/custom-command
-export class Mail {
+export class Scan {
   @bindable search;
   pageable = {
     refresh: true,
     pageSizes: true,
     buttonCount: 10
   };
-  // data = [{
-  //     text: 'All',
-  //     value: '-1'
-  // }, {
-  //     text: 'TYPE1',
-  //     value: '1'
-  // }, {
-  //     text: 'TYPE2',
-  //     value: '2'
-  // }];
-  // dataI = [{
-  //     text: 'Hackendsak',
-  //     value: '1'
-  // }, {
-  //     text: 'Paramus',
-  //     value: '2'
-  // }, {
-  //     text: 'Bcua',
-  //     value: '3'
-  // }, {
-  //     text: 'Bergen',
-  //     value: '4'
-  // }, {
-  //     text: 'Passaic',
-  //     value: '5'
-  // }, {
-  //     text: 'Sober',
-  //     value: '6'
-  // }, {
-  //     text: 'Clifton',
-  //     value: '7'
-  // }, {
-  //     text: 'NJWW',
-  //     value: '8'
-  // }, {
-  //     text: 'Maverick',
-  //     value: '9'
-  // }];
-
-
+  
   originalScans = [];
 
   // staffTemplate = '${assignto ? assignto.StaffName : ""}';
   //toast,
-  constructor(toast, router, auth, api) {
+  constructor( router, api) {
 
     //  if (auth.user.Admin === undefined) {
     //       // window.history.go(1)// -1);
@@ -95,13 +46,12 @@ export class Mail {
     this.ss2;
     this.capColor = 1
     this.toggleStaff = 'Unassigned'
-    this.auth = auth
+ //   this.auth = auth
     this.competed = 'all' // false
 
-    this.metacars = ['template', 'type', 'filename', 'contents', 'assignto', 'StaffName']
     this.api = api
-    this.modal = MdModal;
-    this.toast = toast
+  //  this.modal = MdModal;
+    //this.toast = toast
   }
   // startDatePicker = new Date('1-1-2016');
   // endDatePicker = new Date();

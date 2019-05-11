@@ -27,92 +27,35 @@
       text-align: right;
     }
 
-    #cap {
-      width: 242px;
-      height: 225px;
-      margin: 20px auto;
-      background-image: url('http://demos.telerik.com/kendo-ui/content/web/dropdownlist/cap.png');
-      background-repeat: no-repeat;
-      background-color: transparent;
-    }
+ 
+			.k-edit-form-container {
+				position: relative;
+				width: 660px;
+			}
+			/* .k-autocomplete.k-header {
+				width: 350px;
+			} */
 
-    .black-cap {
-      background-position: 0 0;
-    }
+			.k-dropdown {
+				width: 350px;
+			}
+		</style>
 
-    .grey-cap {
-      background-position: 0 -225px;
-    }
+		<script>
+			excelExport:
+                        function (e) {
 
-    .orange-cap {
-      background-position: 0 -450px;
-    }
+                            var sheet = e.workbook.sheets[0];
+                            var template = kendo.template(this.columns[8].template);
 
-    #town {
-      float: left;
-      width: 60px;
-      height: 20px;
-      margin: 20px;
-      border: 1px solid rgba(0, 0, 0, .2);
-    }
+                            for (var i = 1; i < sheet.rows.length; i++) {
+                                var row = sheet.rows[i];
 
-    .town-blue {
-      background: #13b4ff;
-    }
-
-    .town-purple {
-      background: #ab3fdd;
-    }
-
-    .town-wine {
-      background: #ae163e;
-    }
-
-    .town-1 {
-      background: #cecece;
-    }
-
-    .town-2 {
-      background: #ab3fdd;
-    }
-
-    .town-3 {
-      background: #f9f900;
-    }
-
-    .town-4 {
-      background: #25bc87;
-    }
-
-    .town-5 {
-      background: #2626e2;
-    }
-
-    .town-6 {
-      background: #fc9255;
-    }
-
-    .town-7 {
-      background: #db8dfc;
-    }
-
-    .town-8 {
-      background: #a3fc55;
-    }
-
-    .town-9 {
-      background: #55fcfc;
-    }
-
-    .town-10 {
-      background: #55b9fc;
-    }
-
-    .town-11 {
-      background: #f90000;
-    }
-
-  </style>
+                                let diff = row.cells[6].value - row.cells[7].value
+                                row.cells.push({ 'value': diff })
+                            }
+                        }
+		</script>
 
   <require from="./about.css"></require>
   <div class="container-fluid">
@@ -149,20 +92,7 @@
               <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Filter FROI
             </button>
           </div>
-          <!--<div class="col-sm-1">
-                        <button ak-button click.delegate="showSelection()"></button>
-
-                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Show selection
-                        </button>
-                    </div>-->
-
-
-
-          <!--<div class="col-sm-2">
-                        <button type="button" id="textButton" ak-button k-on-click.delegate="loadPdf($event)">
-                              <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>  select
-                        </button>
-                    </div>-->
+       
 
 
           <div class="col-sm-3" style="display:${displayoption}">
@@ -224,30 +154,23 @@
           <!--k-resizable.bind="true" k-column-menu.bind="true" k-selectable="[row,multiple]" k-pageable.bind="pageable"-->
 
           <div class="row">
-            <div class="col-sm-12">
-              <!-- <ak-grid k-data-source.bind="dataSource" id="grid" k-widget.bind="grid"
-                k-on-data-bound.delegate="onDataBound($event.detail)" k-on-edit.delegate="onEdit($event.detail)"
-                k-sortable.bind="{ mode: 'multiple',   allowUnsort: 'true'}" k-filterable.bind="{  mode: 'row' }"
-                k-editable="inline" k-reorderable.bind="true" k-groupable.bind="true" k-resizable.bind="true"
-                k-column-menu.bind="true" k-selectable="[row]" k-pageable.bind="pageable" k-toolbar.bind="['excel']"
-                k-excel.bind="{ fileName: 'mailflow.xlsx' }">
-                <ak-col k-title="created" k-editor.bind="nonEditorDate" k-width="100px" k-locked.bind="true"
-                  k-lockable.bind="false" k-field="createdAt" k-filterable.bind="false" k-format="{0:MM/dd/yyyy}">
-                </ak-col> -->
-              <!-- ${scans} -->
-              <!-- <ak-grid class="flex-row-1 overflow-y-auto" id="grid" k-data-source.bind="dataSource" k-widget.bind="grid"
-                k-sortable.bind="{ mode: 'multiple',   allowUnsort: 'true'}" k-filterable.bind="{  mode: 'row' }"
-                k-editable="inline" k-reorderable.bind="true" k-groupable.bind="true" k-resizable.bind="true"
-                k-selectable="[row,multiple]" k-on-edit.delegate="onEdit($event.detail)"
-                k-on-data-bound.delegate="onDataBound($event.detail)" k-on-change.delegate="rowSelected($event.detail)"
-                k-column-menu.bind="true" k-pageable.bind="true"> -->
-              <ak-grid class="flex-row-1 overflow-y-auto" id="grid" k-data-source.bind="dataSource" k-widget.bind="grid"
+            <!-- <div class="col-sm-12"> -->
+                <!-- <ak-grid class="flex-row-1 overflow-y-auto" id="grid" k-data-source.bind="dataSource" k-widget.bind="grid"
                 k-sortable.bind="{ mode: 'multiple',   allowUnsort: 'true'}" k-editable="inline"
                 k-reorderable.bind="true" k-groupable.bind="true" k-resizable.bind="true" k-selectable="[row,multiple]"
                 k-on-edit.delegate="onEdit($event.detail)" k-on-data-bound.delegate="onDataBound($event.detail)"
                 k-on-change.delegate="rowSelected($event.detail)" k-column-menu.bind="true" k-pageable.bind="true">
                 <ak-col k-width="180px" k-title="command" click.delegate='onEdit($event)'
-                k-command.bind="['edit']" k-title="&nbsp;" k-locked.bind="true" k-lockable.bind="false"></ak-col>
+                k-command.bind="['edit']" k-title="&nbsp;" k-locked.bind="true" k-lockable.bind="false"></ak-col> -->
+
+
+	<ak-grid class="flex-row-1" id="grid" k-data-source.bind="dataSource" k-widget.bind="grid" k-sortable.bind="{ mode: 'multiple',   allowUnsort: 'true'}"
+		 k-filterable.bind="{  mode: 'row' }" k-reorderable.bind="true" k-groupable.bind="true" k-resizable.bind="true" k-selectable="row"
+		 k-on-change.delegate="rowSelected($event.detail)" k-column-menu.bind="true" k-pageable.bind="true" k-on-edit.delegate="onEdit($event.detail)"
+		 k-editable="popup" k-selectable="[row]" k-toolbar.bind="['excel']" k-excel.bind="{ fileName: 'mailflow.xlsx' }">
+		    <ak-col k-width="180px" k-title="command" click.delegate='onEdit($event)'
+                k-command.bind="['edit']" k-title="&nbsp;" k-locked.bind="true" k-lockable.bind="false"></ak-col> -->
+
 
                 <ak-col k-title="BCSNumber" k-field="BCSNumber" k-width="120px"
                   k-filterable.bind="{cell: { operator: 'startswith' }}"></ak-col>
