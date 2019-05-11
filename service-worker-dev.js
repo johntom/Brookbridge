@@ -5,7 +5,8 @@ const RUNTIME_ORIGINS = [
 ];
 const NO_CACHE_ORIGINS = [
   'https://api.mlab.com',
-  'https://artbased.com'
+  'https://backend.brookbridgeinc.com'
+  // 'https://artbased.com'
 
 ];
 //'https://gtztest.com'
