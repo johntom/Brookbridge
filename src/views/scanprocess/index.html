@@ -1,0 +1,47 @@
+<template>
+	<style>
+		html {
+			font-size: 14px;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+	</style>
+
+	<require from="./about.css"></require>
+
+	<div class="container-fluid">
+		<br>
+		<ul>
+			<li class="k-state-active">Process Scans</li>
+
+		</ul>
+		<div>
+			<section>
+				<br>
+				<h1>Process Scans for BB</h1>
+				<div class='row'>
+					<div class="col-sm-12"> 
+						
+						<div class="col-sm-4">
+								<button class="btn btn-default" ak-button click.delegate="processScans()"><i class="fa fa-cog fa-2x" aria-hidden="true"></i> Process Scans</button>
+        
+							<!-- <button show.bind="displayoption" type="button" class="btn btn-default" ak-button k-on-click.delegate="processScans()">
+									<span aria-hidden="true"><i class="fa fa-cog fa-2x" aria-hidden="true"></i> Process Scans </span> 
+							</button>
+	                  
+							<button type="button" class="btn btn-default" ak-button k-on-click.delegate="processScans()">
+									<span aria-hidden="true"><i class="fa fa-cog fa-2x" aria-hidden="true"></i> Process Scans </span> 
+							</button> -->
+						</div>
+						<div class="col-sm-4">
+
+							<span >You have just processed ${scansprocessed} </span>
+
+
+						</div>
+					</div>
+				</div>
+
+			</section>
+		</div>
+	</div>
+</template>

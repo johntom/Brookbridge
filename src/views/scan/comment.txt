@@ -1,0 +1,128 @@
+
+ //saveGrid() {
+        // myJson.stringify(kendo.jQuery(this.grid).getOptions() )
+        // myJson.stringify( 
+
+        // let obj = '{cols:'+this.grid.columns+'}' //.getOptions()
+        // let objcols = myJson.stringify(obj );
+        // console.log('oc ',objcols)
+
+        //  //let obj2a = myJson.stringify(kendo.stringify.this.grid.getOptions());
+        //      //   let obj2a = myJson.stringify(this.grid.getOptions())
+        //         // let obj2 = myJson.parse(myJson.stringify(dateSerializer))
+        //         let obj2b = myJson.parse(myJson.stringify(obj2a))
+        //         console.log(obj2a, obj2b)//
+        //         alert(obj2a === obj2b)//
+        //   localStorage["kendo-grid-mail"] = kendo.stringify(this.grid.getOptions());
+        // alert("Saved to storage. Reload now and click the Load button")
+        //let rt2 = 'mail'
+        //this.router.navigate(rt2);
+        // var obj = {};
+        // obj.me = obj;
+
+        // var jsonWithCircularRef = dojox.json.ref.toJson(obj)
+
+        // obj = dojox.json.ref.fromJson(jsonWithCircularRef);
+        // obj.me == obj // -> true, the reproduced object will
+        // alert('do '+obj.me == obj )
+        //have a property named "me" with a value of itself
+  // var myJson = superJson.create(); // The above options are defaults.
+        // var obj = {};
+        // obj.me = obj;
+        // //  myJson.stringify({birth: new Date(0), someRegex: /abc/gi}); 
+        // myJson.stringify(obj)
+
+        // let obj2 = myJson.parse(myJson.stringify(obj))
+        // alert(obj.me === obj2)// -> true, the reproduced object will
+
+        // let obj = myJson.stringify(dateSerializer)
+        // let obj2 = myJson.parse(myJson.stringify(obj))
+        // console.log(obj, obj2)//
+        // //alert(obj === obj2)//
+        // let gopts = this.grid.getOptions()
+   // loadPdf(e, idx) {
+    //     alert('loadPdf ' + e)
+    //     //    this.grid.select($("tr")[3]);
+    //     //      let grid = e.sender;
+    //     let grid = this.grid;//p.grid;//;
+    //     //   alert('loadPdf '+e)
+    //     //    let selectedRow = grid.select();
+    //     let offset = 4
+    //     ////  let tr = grid.select().closest("tr"); 
+    //     ////var dataItem = grid.dataItem(tr);
+    //     // grid.select($("tr")[offset+5]);
+    //     //// grid.select( grid.select().closest("tr"));
+
+
+    //     //var row = grid.closest("tr");
+    //     var gridd = grid.dataSource;//("kendoGrid");
+    //     var row = grid.select().closest("tr") //$(this).closest("tr");
+    //     // let row = e//grid.select().closest("tr"); 
+    //     var rowIdx = $("tr", gridd).index(row);
+    //     var colIdx = $("td", row).index(this);
+
+
+    //     // let dataItem = grid.dataItem(selectedRow);
+    //     let dataItem = e;//.dataItem;
+    //     let rt2 = 'http://jif.bergenrisk.com:8080/api/v1/onepdf/' + dataItem.template + '/' + dataItem.filename + '.pdf'
+    //     // alert('rt2 '+rt2)
+    //     //     window.open(rt2, '_blank');
+    // }
+
+    // editorCheckamt(container, options) {
+    //     container.text(options.model['billedamt'] - options.model['payamt'])
+
+    // }
+
+    // cmdCheck(container, options) {
+    // if (options.model.completed ) {
+    //         container.text(options.model[options.field]);
+    // }
+    // }
+
+        //  activate(params, queryString, routeConfig) {
+    //    }
+    //   // let d1 = params.d1
+    //   // if (d1 === undefined) {
+    //   //   this.capColor = 1
+    //   //   this.ss1 = '1-1-2016'
+    //   //   this.ss2 = '10-10-2016'
+    //   // } else {
+    //   //   this.capColor = params.town
+    //   //   this.ss1 = params.d1
+    //   //   this.ss2 = params.d2
+    //   // }
+
+    // }
+    //  determineActivationStrategy() {
+    //     return activationStrategy.replace; //replace the viewmodel with a new instance
+    //     // or activationStrategy.invokeLifecycle to invoke router lifecycle methods on the existing VM
+    //     // or activationStrategy.noChange to explicitly use the default behavior
+
+    //   }
+      afterAttached() {
+        // var options = localStorage["kendo-grid-mail"];
+        // if (options) {
+        //     this.grid.setOptions(JSON.parse(options));
+        // }
+        // this.dataSource.read()
+
+    }
+
+     // search() {
+    //   let s1 = moment(this.startDatePicker).format('MM-DD-YYYY')
+    //   let s2 = moment(this.endDatePicker).format('MM-DD-YYYY')
+    //   let rt = 'grievances'
+    //   this.router.navigate(rt + '?town=' + this.capColor + '&d1=' + s1 + '&d2=' + s2);
+    //   console.log('this.route ', this.route)
+    // }
+    // "isnull",value:"isnull"
+    /*
+    if (this.toggleStaff === 'Unassigned') {
+            this.toggleStaff = 'Assgined'
+            this.applyFilter("assigntoStaffName", 'isnull','isnull')
+        } else {
+            this.toggleStaff = 'Unassigned'
+            this.applyFilter("assigntoStaffName", 'isnotnull','isnotnull' ) //isnotnull  
+        }
+      */
