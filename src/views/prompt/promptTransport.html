@@ -1,0 +1,60 @@
+
+<template>
+	<style>
+		ai-dialog-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		ai-dialog-container>div {
+			margin: auto !important;
+		}
+	</style>
+	<ux-dialog style="width:800px; height: 550px;">
+		<!-- <ux-dialog-header>
+      <h1>${heading}</h1>
+    </ux-dialog-header> --> 
+
+		<ux-dialog-header class="modal-header modal-header-success">
+			<div class="alert alert-danger">
+				<h1>${heading}</h1>
+
+			</div>
+		</ux-dialog-header>
+
+		<ux-dialog-body>
+
+	<div class="Rtable Rtable--2cols">
+							<div class=" Rtable-cell-30 Rtable-cell--highlight">
+								<strong> Transport Date </strong>
+							</div>
+							<div class="Rtable-cell-70  Rtable-cell--light">
+							<input type="date" id="ExhibitSortDate" class="form-control input-sm au-target" value.bind="item.TransportDate">  
+							</div>
+						</div>
+
+						<div class="Rtable Rtable--2cols">
+							<div class=" Rtable-cell-30 Rtable-cell--highlight">
+								<strong> Transport Note </strong>
+							</div>
+							<div class="Rtable-cell-70  Rtable-cell--light">
+								<textarea rows="2" cols="66" id="xExhibitSponser" wrap class="form-control input-sm" value.bind="item.TransportNotes"></textarea>
+						</div>
+
+
+
+		</ux-dialog-body>
+		<ux-dialog-footer>
+			<button click.trigger="controller.cancel()">Cancel and Close </button>
+			<button click.trigger="save()">Save Transport and Close </button>
+		<!-- <button id="save1" class="btn btn-primary" type="button" click.delegate="save1()">Save Transport </button> -->
+
+		</ux-dialog-footer>
+	</ux-dialog>
+	<ux-dialog-footer>
+		<!-- <button click.trigger="controller.cancel()">Cancel and Close </button>
+		<button click.trigger="save()">Save Reproduction and Close </button> -->
+
+	</ux-dialog-footer>
+</template>

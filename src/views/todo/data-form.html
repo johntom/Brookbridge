@@ -1,0 +1,116 @@
+<template>
+	<!-- <require from="./flex.css"></require> -->
+	<require from="../../../styles/flex.css"></require>
+	<require from="../../resources/value-converters/date-format"></require>
+	<section style="width:50%;" class="full-height flex-column-1 au-animate ignore">
+		<div class="flex-row-none section-header">
+			${heading} Todo
+		</div>
+		<button id="addtodoBtn" class="btn btn-success" type="button" click.delegate="addtodo()"><strong>A</strong>dd Todo</button>
+
+		<div class="flex-column-1 overflow-y-auto">
+			<form class="flex-column-1">
+				<div id="top" class="flex-row-3">
+					<div id="top-left" class="data-form overflow-y-auto flex-column-2">
+						<div class="flex-row-none">
+							<div class="form-group flex-column-2">
+								<div class="Rtable Rtable--2cols">
+									<div class="Rtable-cell-30 Rtable-cell--highlight">
+										<strong>Issue</strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--highlight">
+										<textarea rows="6" cols="100" id="Issue" class="form-control " value.bind="currentItem.Issue"></textarea>
+									</div>
+
+
+<div class="Rtable-cell-30 Rtable-cell--highlight"> 
+										<strong>DeveloperNotes</strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--highlight">
+										<textarea rows="6" cols="100" id="Issue" class="form-control " value.bind="currentItem.DeveloperNotes"></textarea>
+									</div>
+                  
+
+
+									<div class="Rtable-cell-30 Rtable-cell--highlight">
+										<strong>Type</strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--highlight">
+										<select id="type" class="form-control" value.bind="currentItem.type"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of types" model.bind="opt.name">
+                          ${opt.name} 
+                      </option> 
+                      </select>
+									</div>
+
+									<div class="Rtable-cell-30 Rtable-cell--highlight">
+										<strong>Status</strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--highlight">
+										<select id="status" class="form-control" value.bind="currentItem.status"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of status" model.bind="opt">
+                          ${opt} 
+                      </option> 
+                      </select>
+									</div>
+									<div class="Rtable-cell-30 Rtable-cell--highlight">
+										<strong>Result Status</strong>
+									</div>
+
+									<div class="Rtable-cell-70  Rtable-cell--highlight">
+										<select id="status" class="form-control" value.bind="currentItem.statusresults"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of statusresults" model.bind="opt">
+                          ${opt} 
+                      </option> 
+                      </select>
+									</div>
+
+
+
+
+									<div class="Rtable-cell-30 Rtable-cell--highlight">
+										<strong> Created Date</strong>
+									</div>
+
+									<div class="Rtable-cell-70  Rtable-cell--highlight">
+										<span>${currentItem.createdAt | dateFormat}</span>
+									</div>
+									<div class="Rtable-cell-30 Rtable-cell--highlight">
+										<strong> </strong>
+									</div>
+									<div class="Rtable-cell-70 Rtable-cell--highlight">
+										<strong> Completed  &nbsp;</strong>
+										<input type="checkbox" id="isComplete" checked.bind="currentItem.isComplete">
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="flex-column-none section-footer">
+			<span>&nbsp;&nbsp;	
+          <button class="btn btn-sm btn-danger" click.delegate="savetodo(0)">
+                  Save & Stay
+          </button>
+        </span>
+			<span>&nbsp;&nbsp;	
+          <button class="btn btn-sm btn-danger" click.delegate="savetodo(1)">
+                  Save & Close 
+          </button>
+        </span>
+			<span>&nbsp;&nbsp;	
+          <button class="btn btn-sm btn-danger" click.delegate="requestclose()">
+                 Close
+          </button>
+        </span>
+		</div>
+
+	</section>
+</template>

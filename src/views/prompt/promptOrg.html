@@ -1,0 +1,267 @@
+<!-- <template>
+	<require from="aurelia-kendoui-bridge/multiselect/multiselect"></require>
+	<require from="../../resources/value-converters/stringify"></require>
+	<require from="../../../styles/flex.css"></require>
+	 <ux-dialog style="width:400px; height: 250px;">
+    
+		<ux-dialog-header class="modal-header modal-header-success">
+			<div class="alert alert-danger">
+					 <h1 style="width:400px">${heading}</h1>
+          	
+			</div>
+		</ux-dialog-header>
+	
+		<ux-dialog-body>
+
+			<div class="form-group flex-column-1">
+				<h2> ${doc} </h2>
+				<table class="table-condensed table">
+					<thead class="table-header-blue">
+
+					</thead>
+					<tfoot>
+						<tr>
+							<td></td>
+						</tr>
+					</tfoot>
+					<tbody>
+					
+
+
+					</tbody>
+				</table>
+			</div>
+			<hr>
+		</ux-dialog-body>
+
+		<ux-dialog-footer>
+			<button click.trigger="controller.cancel()">Cancel and Close </button>
+			<button click.trigger="save()">Save Reproduction and Close </button>
+
+		</ux-dialog-footer>
+	</ux-dialog>
+</template> -->
+
+
+<template>
+
+<style>
+ai-dialog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ai-dialog-container > div {
+  margin: auto !important;
+}
+</style>
+	<ux-dialog style="width:800px; height: 550px;">
+	
+		<ux-dialog-header class="modal-header modal-header-success">
+			<div class="alert alert-danger">
+				<h1>${heading}</h1>
+
+	<button click.trigger="controller.cancel()">Close </button>
+
+			</div>
+		</ux-dialog-header>
+
+		<ux-dialog-body>
+			<div class="Rtable Rtable--2cols">
+
+				<div class="Rtable-cell-30 Rtable-cell--highlight">
+					<strong> OrgName</strong>
+				</div>
+				<div class="Rtable-cell-70  Rtable-cell--highlight">
+					<input type="text" id="OrgName" class="form-control input-sm" value.bind="item.OrgName" disabled>
+    		
+				</div>
+				<div class="Rtable-cell-30 Rtable-cell--highlight">
+					<strong> Address</strong>
+				</div>
+				<div class="Rtable-cell-70  Rtable-cell--highlight">
+					<input type="text" id="Address" class="form-control input-sm" value.bind="item.Address" disabled>
+				
+      	</div>
+				<div class="Rtable-cell-30 Rtable-cell--highlight">
+					<strong> City</strong>
+				</div>
+				<div class="Rtable-cell-70  Rtable-cell--highlight">
+					<input type="text" id="City" class="form-control input-sm" value.bind="item.City" disabled>
+				</div>
+				<div class="Rtable-cell-30 Rtable-cell--highlight">
+					<strong> State</strong>
+				</div>
+				<div class="Rtable-cell-70  Rtable-cell--highlight">
+					<input type="text" id="State" class="form-control input-sm" value.bind="item.State" disabled>
+				</div>
+				<div class="Rtable-cell-30 Rtable-cell--highlight">
+					<strong> Zip</strong>
+				</div>
+				<div class="Rtable-cell-70  Rtable-cell--highlight">
+					<input type="text" id="Zip" class="form-control input-sm" value.bind="item.Zip" disabled>
+				</div>
+
+
+				<div class="Rtable-cell-30 Rtable-cell--highlight">
+					<strong> Status</strong>
+				</div>
+				<div class="Rtable-cell-70  Rtable-cell--highlight">
+					<input type="text" id="PurchasedDate" class="form-control input-sm" value.bind="item.Status" disabled>
+				</div>
+				<div class="Rtable-cell-30 Rtable-cell--highlight">
+					<strong> Notes</strong>
+				</div>
+				<div class="Rtable-cell-70  Rtable-cell--highlight">
+
+          	<textarea rows="6" cols="100" id="Notes" class="form-control input-sm" value.bind="item.Notes" ng-disabled=""></textarea>
+
+				</div>
+			</div>
+
+			<h4>
+				<i class="fa fa-folder-open"></i> Phone
+	
+
+
+			</h4>
+			<table class="table-condensed table">
+				<thead class="table-header-blue">
+					<tr>
+
+						<tr>
+							<th width="300px" class="header">type
+							</th>
+							<th width="200px" class="header">phoneno
+							</th>
+							<th width="100px" class="header">area code
+							</th>
+							<th width="300px" class="header">ext
+							</th>
+							<th width="300px" class="header">country
+							</th>
+							<th width="225px" class="header">Cmd
+
+							</th>
+						</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr repeat.for="phone of item.orgphones" with.bind="phone">
+
+						<td width="300px">
+							<select id="phonetype" class="form-control  input-sm" value.bind="type"> 
+                      <option model.bind="null">Choose...filterOnCode</option> 
+                         <option repeat.for="opt of appService.codesPhoneType " model.bind="opt.id">
+                    ${opt.Description}  
+                      </option> 
+                    </select>
+						</td>
+						<td width="200px">
+							<span show.bind="!phone.edit">${phoneno}</span>
+
+							<span show.bind="phone.edit" class="form-control input-sm" disabled.bind="!phone.edit" type="text" value.bind="phoneno"></span>
+						</td>
+						<td width="100px">
+							<span show.bind="!phone.edit">${areacode}</span>
+
+							<span show.bind="phone.edit" class="form-control input-sm" disabled.bind="!phone.edit" type="text" value.bind="areacode"></span>
+						</td>
+						<td width="300px">
+
+							<span show.bind="!phone.edit">${ext}</span>
+
+							<span show.bind="phone.edit" class="form-control input-sm" disabled.bind="!phone.edit" type="text" value.bind="ext"></span>
+						</td>
+						<td width="100px">
+							<span show.bind="!phone.edit">${countrycode}</span>
+
+							<span show.bind="phone.edit" class="form-control input-sm" disabled.bind="!phone.edit" type="text" value.bind="countrycode"></span>
+						</td>
+						<td width="225px">
+
+				
+							<!-- <button class="btn btn-danger" click.delegate="remove(note,$index)">Delete</button> -->
+
+						</td>
+
+
+				</tbody>
+			</table>
+
+
+ <div class="input-field col s6">
+                                <i class="material-icons prefix">search</i>
+                                <input id="icon_prefix" type="text" value.bind="searchcontact & debounce" class="validate">
+                            </div>
+	<table class="table-condensed table">
+				<thead class="table-header-blue">
+					<tr>
+
+						<tr>
+							<th width="350px" class="header">name
+							</th>
+							<th width="200px" class="header">phone 1 
+							</th>
+							<th width="200px" class="header">phone 2
+							</th>
+							
+							<th width="200px" class="header">phone 3
+
+							</th>
+						</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr repeat.for="contact of item.contacts" with.bind="contact">
+
+					
+						<td width="350px">
+							<span >${LastName},  ${FirstName}</span>
+
+							</td>
+              <td width="200px">
+							<span >${phones[0].phoneno}, ${phones[0].ext}</span>
+
+							</td>
+                <td width="200px">
+							<span >${phones[1].phoneno}, ${phones[1].ext}</span>
+
+							</td>
+                <td width="200px">
+							<span >${phones[2].phoneno}, ${phones[2].ext}</span>
+
+							</td>
+				
+
+				</tbody>
+			</table>
+
+
+
+
+		</ux-dialog-body>
+		<ux-dialog-footer>
+			<button click.trigger="controller.cancel()"> Close </button>
+			<!-- <button click.trigger="save()">Save Org and Close </button> -->
+
+		</ux-dialog-footer>
+	</ux-dialog>
+	<ux-dialog-footer>
+		<!-- <button click.trigger="controller.cancel()">Cancel and Close </button>
+		<button click.trigger="save()">Save Reproduction and Close </button> -->
+
+	</ux-dialog-footer>
+</template>
