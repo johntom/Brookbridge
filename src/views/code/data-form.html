@@ -1,0 +1,82 @@
+<template>
+	<require from="../../resources/value-converters/date-format"></require>
+
+	<section style="width:50%;" class="full-height flex-column-1 au-animate ignore">
+		<div class="flex-row-none section-header">
+			${heading} Code
+		</div>
+		<button id="addArtistBtn" class="btn btn-success" type="button" click.delegate="addartist()"><strong>A</strong>dd Code</button>
+
+		<div class="flex-column-1 overflow-y-auto">
+			<form class="flex-column-1">
+				<div id="top" class="flex-row-3">
+					<div id="top-left" class="data-form overflow-y-auto flex-column-2">
+						<div class="flex-row-none">
+							<div class="form-group flex-column-2">
+								<div class="Rtable Rtable--2cols">
+									<div class="Rtable-cell-30 Rtable-cell--highlight">
+										<strong> id</strong>
+									</div>
+
+									<div class="Rtable-cell-70  Rtable-cell--highlight">
+										<input type="text" id="id" class="form-control input-sm" value.bind="code.id">
+									</div>
+									<div class="Rtable-cell-30 Rtable-cell--highlight">
+										<strong>Legacy id</strong>
+									</div>
+
+									<div class="Rtable-cell-70  Rtable-cell--highlight">
+										<input type="text" id="LID" class="form-control input-sm" value.bind="code.ID">
+									</div>
+
+									<div class="Rtable-cell-30 Rtable-cell--highlight">
+										<strong> Description</strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--highlight">
+										<input type="text" id="Description" class="form-control input-sm" value.bind="code.Description">
+									</div>
+									<!-- <div class="Rtable-cell-30 Rtable-cell--highlight">
+										<strong> Sort Order</strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--highlight">
+										<input type="text" id="Sort Order" class="form-control input-sm" value.bind="[code.Sort Order]">
+									</div> -->
+									<div class="Rtable-cell-30 Rtable-cell--highlight">
+										<strong> CodeType</strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--highlight">
+										<select id="CodeType" class="form-control  input-sm" value.bind="code.CodeType"> 
+                      <option model.bind="null">Choose...</option> 
+                         <option repeat.for="opt of appService.codestype " model.bind="opt.id">
+                    ${opt.Description} 
+                      </option> 
+                    </select>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="flex-column-none section-footer">
+			<span>&nbsp;&nbsp;	
+          <button class="btn btn-sm btn-danger" click.delegate="saveartist(0)">
+                  Save & Stay
+          </button>
+        </span>
+			<span>&nbsp;&nbsp;	
+          <button class="btn btn-sm btn-danger" click.delegate="saveartist(1)">
+                  Save & Close 
+          </button>
+        </span>
+			<span>&nbsp;&nbsp;	
+          <button class="btn btn-sm btn-danger" click.delegate="requestclose()">
+                 Close
+          </button>
+        </span>
+		</div>
+
+	</section>
+</template>
