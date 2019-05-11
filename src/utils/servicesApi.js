@@ -1,19 +1,18 @@
 
-import {  inject,  singleton} from 'aurelia-dependency-injection';
-import {  HttpClient } from 'aurelia-fetch-client'
+import { inject, singleton } from 'aurelia-dependency-injection';
+import { HttpClient } from 'aurelia-fetch-client'
 // sample-layout-mrg
 @inject(HttpClient)
 export class ApiService {
   constructor(http) {
     this.http = http;
     this.upmess = ''
-// this.baseweb = 'https://artbased.com/api/'
-// this.basewebjif = 'https://jif.bergenrisk.com/api/';
-// this.baseBB = 'https://buildings-207021.appspot.com/query'// bin/1022709
-
- /// https://gtztest.com/api/v1/inmate
+    // this.baseweb = 'https://artbased.com/api/'
+    // this.basewebjif = 'https://jif.bergenrisk.com/api/';
+    // this.baseBB = 'https://buildings-207021.appspot.com/query'// bin/1022709
+    /// https://gtztest.com/api/v1/inmate
     this.baseweb = 'https://backend.brookbridgeinc.com/api/'
-   
+
 
 
   }
@@ -149,8 +148,8 @@ export class ApiService {
 
   // all new 2019 AA methods
 
-// https://artbased.com/api/v1/savedlists/getinventory/ { method: ['get'], path: '/api/v1/savedlists/getinventory/:id', handler: 'SavedlistsController.getinventory' },
-   async findInventorySavedLists(search) {
+  // https://artbased.com/api/v1/savedlists/getinventory/ { method: ['get'], path: '/api/v1/savedlists/getinventory/:id', handler: 'SavedlistsController.getinventory' },
+  async findInventorySavedLists(search) {
     var url = this.baseweb + 'v1/savedlists/getinventory/' + search
     return await this.http.fetch(url, { mode: 'cors' }).then((res) => res.json())
 
@@ -171,9 +170,9 @@ export class ApiService {
     return await this.http.fetch(url, { mode: 'cors' }).then((res) => res.json())
 
   }
- 
+
   async findTodo(search) {
-    var url = this.baseweb + 'v1/todo/'  + search// + cat
+    var url = this.baseweb + 'v1/todo/' + search// + cat
     return await this.http.fetch(url, { mode: 'cors' }).then((res) => res.json())
 
   }
@@ -436,7 +435,7 @@ export class ApiService {
     }).then((res) => res.json());
   }
 
-async createcontact(rec) {
+  async createcontact(rec) {
     let url = this.baseweb + `v1/contact/create`
     console.log('url ', url)
     return this.http.fetch(url, {
@@ -452,7 +451,7 @@ async createcontact(rec) {
 
 
   //1
- async  batchTransport(rec) {
+  async  batchTransport(rec) {
     let url = this.baseweb + `v1/inventory/batchTransport`
     console.log('url ', url)
     // return {'data': true}
@@ -469,7 +468,7 @@ async createcontact(rec) {
   }
 
 
- async batchExhibit(rec) {
+  async batchExhibit(rec) {
     let url = this.baseweb + `v1/inventory/batchExhibit`
     console.log('url ', url)
     // return {'data': true}
@@ -486,10 +485,10 @@ async createcontact(rec) {
   }
 
   //3
- async batchReproduction(rec) {
-   
+  async batchReproduction(rec) {
+
     let url = this.baseweb + `v1/inventory/batchReproduction`
-    console.log('url ', url,rec)
+    console.log('url ', url, rec)
     // return {'data': true}
     return await this.http.fetch(url, {
       method: 'put',
@@ -778,7 +777,7 @@ async createcontact(rec) {
 
   findSavedlists() {
     //all
-    var url = this.baseweb + 'v1/savedlists'; 
+    var url = this.baseweb + 'v1/savedlists';
     return this.http.fetch(url, { mode: 'cors' }).then((res) => res.json())
   }
 
