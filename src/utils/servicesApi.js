@@ -7,11 +7,11 @@ export class ApiService {
   constructor(http) {
     this.http = http;
     this.upmess = ''
-    this.baseweb = 'https://artbased.com/api/'
+    // this.baseweb = 'https://artbased.com/api/'
     // this.basewebjif = 'https://jif.bergenrisk.com/api/';
     // this.baseBB = 'https://buildings-207021.appspot.com/query'// bin/1022709
     /// https://gtztest.com/api/v1/inmate
-    // this.baseweb = 'https://backend.brookbridgeinc.com/api/'
+     this.baseweb = 'https://backend.brookbridgeinc.com/api/'
 
 
 
