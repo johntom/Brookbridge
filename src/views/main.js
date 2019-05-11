@@ -8,7 +8,7 @@
 // import "kendo/js/kendo.grid.js";
 // import "kendo/js/kendo.editor.js";
 // import "kendo/js/kendo.multiselect.js";
-
+ 
 export async function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
